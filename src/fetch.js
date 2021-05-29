@@ -24,7 +24,7 @@ const Fetch = () => {
       }
     )
       .then((res) => res.json())
-      .then((res) => console.log("Fetch Button Pressed", res.data));
+      .then((res) => console.log("Fetch Button Was Pressed", res.data));
 
   useEffect(() => {
     fetch(
