@@ -1,7 +1,9 @@
 import jwt from "jsonwebtoken";
 import { useState, useEffect } from "react";
 import "./App.css";
-// import Fetch from "./fetch.js";
+import Fetch from "./fetch.js";
+import Jobs from "./Jobs.js";
+import Job from "./Job.js";
 
 const getToken = () =>
   jwt.sign(
@@ -13,41 +15,11 @@ const getToken = () =>
   );
 
 function App() {
-  const [skills, setSkills] = useState();
 
-  const fetchingFunction = () =>
-    fetch(
-      "https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/title?q=python&limit=50",
-      {
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${getToken()}`,
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((res) => console.log("everytime I fetch", res));
-
-  const data = useEffect(() => {
-    fetch(
-      "https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/title?q=python&limit=50",
-      {
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${getToken()}`,
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((res) => console.log("UseEffect!", res));
-  });
   
   return (
-    <div>
-      <header>
-        <button onClick={fetchingFunction}>fetch</button>
-        <p></p>
-      </header>
+    <div className="App">
+    <Job />
     </div>
   );
 }
