@@ -1,9 +1,12 @@
-import Fetch from "./fetch.js";
+
 
 const Job = ({ job }) => {
+  console.log(job);
   return (
     <div>
-      <Fetch />
+      <ul>
+        <li>{job.name}</li>
+      </ul>
     </div>
   );
 };

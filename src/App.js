@@ -1,9 +1,10 @@
 import jwt from "jsonwebtoken";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
-import Fetch from "./fetch.js";
+import Fetch from "./fetch";
+
 import Jobs from "./Jobs.js";
-import Job from "./Job.js";
+
 
 const getToken = () =>
   jwt.sign(
@@ -15,11 +16,56 @@ const getToken = () =>
   );
 
 function App() {
+  const [job, setJob] = useState([]);
 
-  
+  // const FetchFunction = () =>
+  // useEffect(() => {
+  //   fetch(
+  //     "https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/title?q=python&limit=50",
+  //     {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         authorization: `Bearer ${getToken()}`,
+  //       },
+  //     }
+  //   )
+  //     .then((res) => res.json())
+  //     .then((res) => console.log("UseEffect!", res));
+  // });
+
+  // useEffect(() => {
+  //   fetch(
+  //     "https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/title?q=python&limit=50",
+  //     {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         authorization: `Bearer ${getToken()}`,
+  //       },
+  //     }
+  //   )
+  //     .then((res) => res.json())
+  //     .then((res) => console.log("UseEffect!", res.data));
+  // });
+
+  useEffect(() => {
+    fetch(
+      "https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/title?q=python&limit=50",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${getToken()}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((res) => setJob(res.data));
+  }, []);
+
+
   return (
     <div className="App">
-    <Job />
+    <Jobs job={job}/>
+ 
     </div>
   );
 }
