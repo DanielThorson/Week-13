@@ -4,18 +4,19 @@ import Job from "./Job.js";
 
 
 const Jobs = (props) => {
-console.log(props.job);
-return "ftlop!";
+const jobs = (props.jobs);
+// return ('dsds'
+// )
   // jobs.map((job) => {
   //   return <Job job={job.name} />;
   // });
 
 
-  // return (
-  //   <div>
-  //     <Job jobs={jobs} />
-  //   </div>
-  // );
+  return (
+    <div>
+      <Job jobs={jobs} />
+    </div>
+  );
 };
 
 // const Jobs = ({ jobs }) => {

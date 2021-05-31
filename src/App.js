@@ -18,34 +18,6 @@ const getToken = () =>
 function App() {
   const [job, setJob] = useState([]);
 
-  // const FetchFunction = () =>
-  // useEffect(() => {
-  //   fetch(
-  //     "https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/title?q=python&limit=50",
-  //     {
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         authorization: `Bearer ${getToken()}`,
-  //       },
-  //     }
-  //   )
-  //     .then((res) => res.json())
-  //     .then((res) => console.log("UseEffect!", res));
-  // });
-
-  // useEffect(() => {
-  //   fetch(
-  //     "https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/title?q=python&limit=50",
-  //     {
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         authorization: `Bearer ${getToken()}`,
-  //       },
-  //     }
-  //   )
-  //     .then((res) => res.json())
-  //     .then((res) => console.log("UseEffect!", res.data));
-  // });
 
   useEffect(() => {
     fetch(
@@ -58,13 +30,13 @@ function App() {
       }
     )
       .then((res) => res.json())
-      .then((res) => setJob(res.data));
+      .then(res => setJob(res));
   }, []);
-
+  console.log("this console",job.data);
 
   return (
     <div className="App">
-    <Jobs job={job}/>
+    <Jobs job={console.log(job)}/>
  
     </div>
   );

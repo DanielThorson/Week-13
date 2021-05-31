@@ -5,7 +5,7 @@ const Job = ({ job }) => {
   return (
     <div>
       <ul>
-        <li>{job.name}</li>
+        <li>{job}</li>
       </ul>
     </div>
   );
