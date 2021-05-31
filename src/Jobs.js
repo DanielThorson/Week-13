@@ -3,10 +3,14 @@ import Job from "./Job.js";
 
 
 
-const Jobs = ({ jobs }) => {
-  jobs.map((job) => {
-    return <Job job={job.name} />;
-  });
+const Jobs = (props) => {
+console.log(props.job);
+return "ftlop!";
+  // jobs.map((job) => {
+  //   return <Job job={job.name} />;
+  // });
+
+
   // return (
   //   <div>
   //     <Job jobs={jobs} />
